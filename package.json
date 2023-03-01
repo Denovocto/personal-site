@@ -1,4 +1,12 @@
 {
+  "name": "denovoctos-blog",
+  "version": "0.0.1",
+  "description": "Denovocto's Personal Site",
+  "main": "index.js",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
   "devDependencies": {
     "@11ty/eleventy": "^2.0.0"
   }
