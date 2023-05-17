@@ -3,6 +3,7 @@ const tailwindcss = require("tailwindcss");
 const autoprefixer = require("autoprefixer");
 
 module.exports = function (eleventyConfig) {
+	eleventyConfig.addPassthroughCopy({ "src/**/*.js": "js" });
 	eleventyConfig.addNunjucksAsyncFilter("postcss", (cssCode, done) => {
 		postcss([tailwindcss(require("./tailwind.config.js")), autoprefixer()])
 			.process(cssCode)
