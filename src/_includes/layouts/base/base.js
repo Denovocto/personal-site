@@ -1,5 +1,18 @@
-const themes = ["night", "luxury", "light", "cupcake"];
+export const themes = {
+	night: "night",
+	luxury: "luxury",
+	light: "light",
+	cupcake: "cupcake",
+};
 
-const theme = themes[Math.floor(Math.random() * themes.length)];
+const storedTheme = localStorage.getItem("theme");
 
-document.querySelector("html").setAttribute("data-theme", theme);
+const defaultTheme = themes.night;
+
+if (storedTheme !== null && themes.hasOwnProperty(storedTheme)) {
+	document.querySelector("html").setAttribute("data-theme", storedTheme);
+} else {
+	const theme = defaultTheme;
+	localStorage.setItem("theme", theme);
+	document.querySelector("html").setAttribute("data-theme", theme);
+}

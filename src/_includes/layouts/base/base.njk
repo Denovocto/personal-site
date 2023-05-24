@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
     {% include 'header.njk' %}
+    {% include 'navbar/navbar.njk' %}
     {% include 'css.njk' %}
     {% block content %}
     {% endblock %}
     {% include 'footer.njk' %}
-    <script src='js/base.js'> </script>
+    <script type="module", src='js/base.js'> </script>
 </html>
