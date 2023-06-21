@@ -1,6 +1,8 @@
 import { themes } from "./base.js";
 
 const dropdown = document.getElementById("themes-list");
+
+const currentTheme = localStorage.getItem("theme");
 for (const theme in themes) {
 	const button = document.createElement("button");
 	button.addEventListener("click", () => changeTheme(theme));
@@ -9,10 +11,8 @@ for (const theme in themes) {
 		"overflow-hidden",
 		"rounded-lg",
 		"text-left",
-		"[&_svg]:visible"
 	);
 	button.setAttribute("data-set-theme", theme);
-	button.setAttribute("data-act-class", "[&_svg]:visible");
 
 	const buttonDiv = document.createElement("div");
 	buttonDiv.setAttribute("data-theme", theme);
@@ -39,13 +39,13 @@ for (const theme in themes) {
 		"items-center"
 	);
 
-	const svgCheckMark = document.createElement("svg");
-	svgCheckMark.classList.add("w-3", "h-3", "invisible");
-	svgCheckMark.setAttribute("xmlns", "http://www.w3.org/2000/svg");
-	svgCheckMark.setAttribute("width", "16");
-	svgCheckMark.setAttribute("height", "16");
-	svgCheckMark.setAttribute("viewBox", "0 0 24 24");
-	svgCheckMark.setAttribute("fill", "currentColor");
+	const checkMark = document.createElement("span");
+	checkMark.classList.add("material-symbols-outlined");
+
+	currentTheme !== theme ? checkMark.classList.add("invisible") : null;
+	checkMark.setAttribute("fill", "currentColor");
+
+	checkMark.innerText = "check_circle"
 
 	const divThemeName = document.createElement("div");
 	divThemeName.classList.add("flex-grow", "text-sm", "font-bold");
@@ -65,7 +65,7 @@ for (const theme in themes) {
 		colorPill.classList.add(`bg-${color}`, "w-2", "rounded");
 		themeColors.appendChild(colorPill);
 	}
-	rowDiv.appendChild(svgCheckMark);
+	rowDiv.appendChild(checkMark);
 	rowDiv.appendChild(divThemeName);
 	rowDiv.appendChild(themeColors);
 	grid.appendChild(rowDiv);
@@ -76,7 +76,22 @@ for (const theme in themes) {
 
 function changeTheme(theme) {
 	if (themes.hasOwnProperty(theme)) {
+		const currentTheme = localStorage.getItem("theme");
+		const currentThemeButton = document.querySelector(
+			`button[data-set-theme="${currentTheme}"]`
+		);
+		const currentThemeCheckMark = currentThemeButton.querySelector(
+			"span.material-symbols-outlined"
+		);
+		currentThemeCheckMark.classList.add("invisible");
 		localStorage.setItem("theme", theme);
+		const newThemeButton = document.querySelector(
+			`button[data-set-theme="${theme}"]`
+		);
+		const newThemeCheckMark = newThemeButton.querySelector(
+			"span.material-symbols-outlined"
+		);
+		newThemeCheckMark.classList.remove("invisible");
 		document.querySelector("html").setAttribute("data-theme", theme);
 	}
 }
