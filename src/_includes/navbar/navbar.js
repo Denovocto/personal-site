@@ -59,10 +59,10 @@ for (const theme in themes) {
 		"gap-1",
 		"h-full"
 	);
-	var colors = ["primary", "secondary", "accent", "neutral"];
-	for (const color of colors) {
+	var colorClasses = ["bg-primary", "bg-secondary", "bg-accent", "bg-neutral"];
+	for (const color of colorClasses) {
 		const colorPill = document.createElement("div");
-		colorPill.classList.add(`bg-${color}`, "w-2", "rounded");
+		colorPill.classList.add(color, "w-2", "rounded");
 		themeColors.appendChild(colorPill);
 	}
 	rowDiv.appendChild(checkMark);

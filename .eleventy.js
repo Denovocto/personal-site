@@ -1,8 +1,10 @@
 const postcss = require("postcss");
 const tailwindcss = require("tailwindcss");
 const autoprefixer = require("autoprefixer");
+const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 
 module.exports = function (eleventyConfig) {
+	eleventyConfig.addPlugin(eleventyNavigationPlugin);
 	eleventyConfig.addPassthroughCopy({ "src/**/*.js": "js" });
 	eleventyConfig.addNunjucksAsyncFilter("postcss", (cssCode, done) => {
 		postcss([tailwindcss(require("./tailwind.config.js")), autoprefixer()])

@@ -1,14 +1,10 @@
 <script type="module", src='js/navbar.js'> </script>
 <div class="navbar bg-base-100 justify-between">
         <div class="ml-4">
-                <a class="btn btn-ghost normal-case text-xl">Denovocto's Blog</a>
+                <a class="btn btn-ghost normal-case text-xl" href="/">Denovocto's Blog</a>
         </div>
         <div class="invisible lg:visible text-sm breadcrumbs">
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Components</a></li>
-                <li><a href="#">Navbar</a></li>
-            </ul>
+            {{ collections.all | eleventyNavigation | eleventyNavigationToHtml | safe }}
         </div>
         <div class="flex-0">
             <div title="Theme", class="dropdown dropdown-end">
@@ -23,7 +19,7 @@
                         expand_more
                     </span>
                 </div>
-                <div class="dropdown-content bg-base-200 text-base-content rounded-t-box rounded-b-box top-px max-h-60 h-[70vh] w-52 overflow-y-auto shadow-2xl mt-16">
+                <div class="dropdown-content bg-base-200 text-base-content rounded-t-box rounded-b-box top-px h-[19vh] w-52 overflow-y-auto shadow-2xl mt-16">
                     <div id="themes-list", class="grid grid-cols-1 gap-3 p-3", tabindex="0">
                     </div>
                 </div>

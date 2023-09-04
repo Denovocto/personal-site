@@ -9,6 +9,7 @@
 	},
 	"devDependencies": {
 		"@11ty/eleventy": "^2.0.0",
+		"@11ty/eleventy-navigation": "^0.3.5",
 		"@tailwindcss/typography": "^0.5.9",
 		"@webpack-cli/generators": "^3.0.4",
 		"autoprefixer": "^10.4.13",
