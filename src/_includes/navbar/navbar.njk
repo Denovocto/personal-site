@@ -1,10 +1,22 @@
-<script type="module" src='js/navbar.js'> </script>
+<script type="module" src='/js/navbar.js'> </script>
 <div class="navbar bg-base-100 justify-between">
         <div class="ml-4">
                 <a class="btn btn-ghost normal-case text-xl" href="/">Denovocto's Blog</a>
         </div>
         <div class="invisible lg:visible text-sm breadcrumbs">
-            {{ collections.all | eleventyNavigation | eleventyNavigationToHtml | safe }}
+            {% if eleventyNavigation.key %}
+                {% set crumbs = collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key) %}
+            {% endif %}
+            <ul>
+                {%- for crumb in crumbs %}
+                    <li>
+                        <a href="{{ crumb.url }}"> {{ crumb.title }}</a>
+                    </li>
+                {% endfor %}
+                <li>
+                    <a href="{{ eleventyNavigation.url }}"> {{ eleventyNavigation.title }}</a>
+                </li>
+            </ul>
         </div>
         <div class="flex-0">
             <div title="Theme", class="dropdown dropdown-end">

@@ -1,7 +1,11 @@
 {% extends "layouts/base/base.njk" %}
 
 {% block content %}
-    <div class="p-2 border-accent border">
-        {{ content | safe }}
+    <div class="grid place-items-center my-20">
+        <div class="border-primary border-2 w-[50vw] h-[60vh] rounded-md transition-shadow ease-in-out delay-100 hover:shadow-[0px_0px_20px_-3px] hover:shadow-primary">
+            <div class="p-5 font-mono text-md font-semibold text-base-content">
+                {{ content | safe }}
+            </div>
+        </div>
     </div>
 {% endblock %}

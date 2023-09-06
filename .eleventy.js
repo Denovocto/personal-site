@@ -6,6 +6,8 @@ const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 module.exports = function (eleventyConfig) {
 	eleventyConfig.addPlugin(eleventyNavigationPlugin);
 	eleventyConfig.addPassthroughCopy({ "src/**/*.js": "js" });
+	eleventyConfig.addPassthroughCopy({ "src/**/*.css": "css" });
+	eleventyConfig.addWatchTarget("src/css/**/*.css");
 	eleventyConfig.addNunjucksAsyncFilter("postcss", (cssCode, done) => {
 		postcss([tailwindcss(require("./tailwind.config.js")), autoprefixer()])
 			.process(cssCode)
@@ -14,7 +16,6 @@ module.exports = function (eleventyConfig) {
 				(e) => done(e, null)
 			);
 	});
-	eleventyConfig.addWatchTarget("src/css/**/*.css");
 	return {
 		passthroughFileCopy: true,
 		dir: {
