@@ -1,5 +1,5 @@
 <script type="module" src='/js/navbar.js'> </script>
-<div class="navbar bg-base-100 justify-between">
+<div class="navbar bg-base-100 justify-between fixed top-0 left-0 z-[2] border-b-2 border-base-content">
         <div class="ml-4">
                 <a class="btn btn-ghost normal-case text-xl" href="/">Denovocto's Blog</a>
         </div>
@@ -8,7 +8,7 @@
                 {% set crumbs = collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key) %}
             {% endif %}
             <ul>
-                {%- for crumb in crumbs %}
+                {% for crumb in crumbs %}
                     <li>
                         <a href="{{ crumb.url }}"> {{ crumb.title }}</a>
                     </li>

@@ -7,6 +7,7 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPlugin(eleventyNavigationPlugin);
 	eleventyConfig.addPassthroughCopy({ "src/**/*.js": "js" });
 	eleventyConfig.addPassthroughCopy({ "src/**/*.css": "css" });
+	eleventyConfig.addPassthroughCopy({ "src/assets/**/*.svg": "svg" });
 	eleventyConfig.addWatchTarget("src/css/**/*.css");
 	eleventyConfig.addNunjucksAsyncFilter("postcss", (cssCode, done) => {
 		postcss([tailwindcss(require("./tailwind.config.js")), autoprefixer()])
