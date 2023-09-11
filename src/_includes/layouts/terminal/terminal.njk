@@ -1,8 +1,8 @@
 {% extends "layouts/base/base.njk" %}
 
 {% block content %}
-    <div class="grid bg-base-100 place-items-center relative z-[1] min-h-[100vh]">
-        <div class="border-primary border-2 w-[50%] h-[80%] rounded-md transition-shadow ease-in-out delay-100 hover:shadow-[0px_0px_20px_-3px] hover:shadow-primary">
+    <div class="grid bg-base-100 place-items-center relative z-[1] min-h-[100vh] shadow-md shadow-neutral">
+        <div class="border-primary border-2 w-[90%] md:w-[75%] xl:w-[60%] h-[80%] rounded-md transition-shadow ease-in-out delay-100 hover:shadow-[0px_0px_20px_-3px] hover:shadow-primary">
             <div class="p-5 font-mono text-md font-semibold text-base-content">
                 {{ content | safe }}
             </div>
