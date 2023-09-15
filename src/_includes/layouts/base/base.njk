@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
     {% include 'header.njk' %}
-    {% include 'navbar/navbar.njk' %}
-    {% include 'css.njk' %}
-    {% block content %}
-    {% endblock %}
-    {% include 'footer/footer.njk' %}
-    <script type="module" src='/js/base.js' defer> </script>
+    <body class="overflow-y-hidden touch-none">
+        {% include 'navbar/navbar.njk' %}
+        {% include 'css.njk' %}
+        {% block content %}
+        {% endblock %}
+        {% include 'footer-focus-toggle/footer-focus-toggle.njk' %}
+        {% include 'footer/footer.njk' %}
+    </body>
+    <script type="module" src='/js/base.js'> </script>
 </html>

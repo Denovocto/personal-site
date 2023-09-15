@@ -1,6 +1,4 @@
-{% set css %}
-{% include "src/css/global.css" %}
-{% endset %}
+{% set css %} {% include "src/css/global.css" %} {% endset %}
 <style>
-    {{css | postcss | safe}}
+	{{css | postcss | safe}}
 </style>

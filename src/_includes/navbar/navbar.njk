@@ -1,39 +1,38 @@
 <script type="module" src='/js/navbar.js'> </script>
-<div class="navbar bg-base-100 justify-between fixed top-0 left-0 z-[2] border-b-2 border-base-content">
-        <div class="ml-4">
-                <a class="btn btn-ghost normal-case text-xl" href="/">Denovocto's Blog</a>
-        </div>
-        <div class="invisible lg:visible text-sm breadcrumbs">
-            {% if eleventyNavigation.key %}
-                {% set crumbs = collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key) %}
-            {% endif %}
-            <ul>
-                {% for crumb in crumbs %}
-                    <li>
-                        <a href="{{ crumb.url }}"> {{ crumb.title }}</a>
-                    </li>
-                {% endfor %}
+<div class="navbar min-h-[5vh] bg-base-100 justify-between sticky top-0 left-0 z-[2] border-b-2 border-base-content">
+    <div class="ml-4">
+        <a class="btn btn-ghost normal-case text-xl" href="/">Denovocto's Blog</a>
+    </div>
+    <div class="invisible lg:visible text-sm breadcrumbs">
+        {% if eleventyNavigation.key %}
+            {% set crumbs = collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key) %}
+        {% endif %}
+        <ul>
+            {% for crumb in crumbs %}
                 <li>
-                    <a href="{{ eleventyNavigation.url }}"> {{ eleventyNavigation.title }}</a>
+                    <a href="{{ crumb.url }}"> {{ crumb.title }}</a>
                 </li>
-            </ul>
-        </div>
-        <div class="flex-0">
-            <div title="Theme", class="dropdown dropdown-end">
-                <div tabindex="0" class="btn gap-1 normal-case btn-ghost">
-                    <span class="material-symbols-outlined">
-                        style
-                    </span>
-                    <span class="hidden md:inline">
-                        Theme
-                    </span>
-                    <span class="hidden sm:inline material-symbols-outlined">
-                        expand_more
-                    </span>
-                </div>
-                <div class="dropdown-content bg-base-200 text-base-content rounded-t-box rounded-b-box top-px h-[19vh] w-52 overflow-y-auto shadow-2xl mt-16">
-                    <div id="themes-list", class="grid grid-cols-1 gap-3 p-3", tabindex="0">
-                    </div>
+            {% endfor %}
+            <li>
+                <a href="{{ eleventyNavigation.url }}"> {{ eleventyNavigation.title }}</a>
+            </li>
+        </ul>
+    </div>
+    <div class="flex-0">
+        <div title="Theme" class="dropdown dropdown-end">
+            <div tabindex="0" id="theme-selector" class="btn gap-1 normal-case btn-ghost">
+                <span class="material-symbols-outlined">
+                    style
+                </span>
+                <span class="hidden md:inline">
+                    Theme
+                </span>
+                <span class="hidden sm:inline material-symbols-outlined">
+                    expand_more
+                </span>
+            </div>
+            <div class="invisible dropdown-content bg-base-200 text-base-content rounded-t-box rounded-b-box top-px h-[19vh] w-52 overflow-y-auto shadow-2xl mt-16">
+                <div id="themes-list" class="grid grid-cols-1 gap-3 p-3" tabindex="0">
                 </div>
             </div>
         </div>

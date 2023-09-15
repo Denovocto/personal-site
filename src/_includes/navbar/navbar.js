@@ -1,6 +1,8 @@
 import { themes } from "./base.js";
 
 const dropdown = document.getElementById("themes-list");
+const themeSelector = document.querySelector("#theme-selector");
+let themeDropdownOpen = false;
 
 const currentTheme = localStorage.getItem("theme");
 for (const theme in themes) {
@@ -21,7 +23,7 @@ for (const theme in themes) {
 		"text-base-content",
 		"w-full",
 		"cursor-pointer",
-		"font-sans"
+		"font-sans",
 	);
 
 	const grid = document.createElement("div");
@@ -36,7 +38,7 @@ for (const theme in themes) {
 		"gap-2",
 		"py-3",
 		"px-4",
-		"items-center"
+		"items-center",
 	);
 
 	const checkMark = document.createElement("span");
@@ -45,7 +47,7 @@ for (const theme in themes) {
 	currentTheme !== theme ? checkMark.classList.add("invisible") : null;
 	checkMark.setAttribute("fill", "currentColor");
 
-	checkMark.innerText = "check_circle"
+	checkMark.innerText = "check_circle";
 
 	const divThemeName = document.createElement("div");
 	divThemeName.classList.add("flex-grow", "text-sm", "font-bold");
@@ -57,7 +59,7 @@ for (const theme in themes) {
 		"flex-shrink-0",
 		"flex-wrap",
 		"gap-1",
-		"h-full"
+		"h-full",
 	);
 	var colorClasses = ["bg-primary", "bg-secondary", "bg-accent", "bg-neutral"];
 	for (const color of colorClasses) {
@@ -78,20 +80,27 @@ function changeTheme(theme) {
 	if (themes.hasOwnProperty(theme)) {
 		const currentTheme = localStorage.getItem("theme");
 		const currentThemeButton = document.querySelector(
-			`button[data-set-theme="${currentTheme}"]`
+			`button[data-set-theme="${currentTheme}"]`,
 		);
 		const currentThemeCheckMark = currentThemeButton.querySelector(
-			"span.material-symbols-outlined"
+			"span.material-symbols-outlined",
 		);
 		currentThemeCheckMark.classList.add("invisible");
 		localStorage.setItem("theme", theme);
 		const newThemeButton = document.querySelector(
-			`button[data-set-theme="${theme}"]`
+			`button[data-set-theme="${theme}"]`,
 		);
 		const newThemeCheckMark = newThemeButton.querySelector(
-			"span.material-symbols-outlined"
+			"span.material-symbols-outlined",
 		);
 		newThemeCheckMark.classList.remove("invisible");
 		document.querySelector("html").setAttribute("data-theme", theme);
 	}
 }
+
+themeSelector.addEventListener("click", () => {
+	if (themeDropdownOpen) {
+		themeSelector.blur();
+	}
+	themeDropdownOpen = !themeDropdownOpen;
+});

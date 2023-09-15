@@ -16,3 +16,8 @@ if (storedTheme !== null && themes.hasOwnProperty(storedTheme)) {
 	localStorage.setItem("theme", theme);
 	document.querySelector("html").setAttribute("data-theme", theme);
 }
+
+// window.addEventListener("scroll", (e) => {
+// 	e.preventDefault();
+// 	window.scrollTo(0, 0);
+// })
