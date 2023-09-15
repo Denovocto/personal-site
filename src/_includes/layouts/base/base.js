@@ -7,7 +7,14 @@ export const themes = {
 
 const storedTheme = localStorage.getItem("theme");
 
-const defaultTheme = themes.night;
+let defaultTheme = themes.night;
+
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+	defaultTheme = themes.night;
+}
+else {
+	defaultTheme = themes.light;
+}
 
 if (storedTheme !== null && themes.hasOwnProperty(storedTheme)) {
 	document.querySelector("html").setAttribute("data-theme", storedTheme);
@@ -17,7 +24,3 @@ if (storedTheme !== null && themes.hasOwnProperty(storedTheme)) {
 	document.querySelector("html").setAttribute("data-theme", theme);
 }
 
-// window.addEventListener("scroll", (e) => {
-// 	e.preventDefault();
-// 	window.scrollTo(0, 0);
-// })

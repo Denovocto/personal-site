@@ -6,27 +6,41 @@
 
 
 @layer base {
+
+    h1::before {
+        @apply content-["➜"];
+        @apply mr-2;
+    }
     h1 {
         @apply text-4xl;
         @apply font-bold;
         @apply mt-2;
         @apply mb-5;
     }
-
+    h2::before {
+        @apply content-['➜'];
+        @apply mr-2;
+    }
     h2 {
         @apply text-3xl;
         @apply font-bold;
         @apply mt-2;
         @apply mb-5;
     }
-
+    h3::before {
+        @apply content-['➜'];
+        @apply mr-2;
+    }
     h3 {
         @apply text-2xl;
         @apply font-bold;
         @apply mt-2;
         @apply mb-5;
     }
-
+    h4::before {
+        @apply content-['➜'];
+        @apply mr-2;
+    }
     h4 {
         @apply text-xl;
         @apply font-bold;
