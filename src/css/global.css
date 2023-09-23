@@ -16,6 +16,10 @@
         @apply font-bold;
         @apply mt-2;
         @apply mb-5;
+        @apply sticky;
+        @apply top-0;
+        @apply bg-base-100;
+        @apply p-2;
     }
     h2::before {
         @apply content-['➜'];
@@ -26,6 +30,10 @@
         @apply font-bold;
         @apply mt-2;
         @apply mb-5;
+        @apply sticky;
+        @apply top-0;
+        @apply bg-base-100;
+        @apply p-2;
     }
     h3::before {
         @apply content-['➜'];
@@ -36,6 +44,11 @@
         @apply font-bold;
         @apply mt-2;
         @apply mb-5;
+        @apply sticky;
+        @apply top-0;
+        @apply bg-base-100;
+        @apply p-2;
+
     }
     h4::before {
         @apply content-['➜'];
@@ -46,6 +59,10 @@
         @apply font-bold;
         @apply mt-2;
         @apply mb-5;
+        @apply sticky;
+        @apply top-0;
+        @apply bg-base-100;
+        @apply p-2;
     }
 
     p {
