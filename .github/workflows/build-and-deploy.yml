@@ -5,7 +5,7 @@ on:
       - master
 jobs:
   build-and-deploy:
-    runs-on: alpine-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Setup Pages
         uses: actions/configure-pages@v3
