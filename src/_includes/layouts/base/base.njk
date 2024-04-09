@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html>
-    <script type="module" src='/js/base.js' defer> </script>
+    <script type="module" src='/js/base.js'></script>
     {% include 'header.njk' %}
     <body class="overflow-y-hidden overscroll-contain touch-none">
         {% include 'navbar/navbar.njk' %}
         {% include 'css.njk' %}
-        {% block content %}
-        {% endblock %}
+        {% block content %}{% endblock %}
         {% include 'footer-focus-toggle/footer-focus-toggle.njk' %}
         {% include 'footer/footer.njk' %}
     </body>
